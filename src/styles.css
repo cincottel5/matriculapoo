@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+.td-index-functions button{
+    margin-right: 5px;
+}
+
+.spinner-p{
+    text-align: center;
+}
+
+.detail-content .row {
+    font-size: 16px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.index-alert-empty{ 
+    margin: 15px;
+}

@@ -1,0 +1,73 @@
+<div class="header">
+    <h4 class="title">
+        <span>Administración de aulas</span> 
+        <div class="crud-list-functions float-right">
+            
+        </div>
+    </h4>
+</div>
+
+<div class="content table-responsive table-full-width">
+    <ng-container *ngIf="count > 0 && loaded; else empty">
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>Identificador</th>
+                    <th >Número</th>
+                    <th>Area</th>
+                    <th>Tipo</th>
+                    <th>
+                        <button class="btn btn-wd btn-success" (click)="add()">
+                            <span class="btn-label">
+                                <i class="ti-plus"></i>
+                            </span>
+                            <span>Crear un aula</span>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of data | paginate: { 
+                    itemsPerPage: 10,
+                    currentPage: page,
+                    totalItems: count}">
+                    <td>{{row.idAula}}</td>
+                    <td>{{row.numeroAula}}</td>
+                    <td>{{row.area}}</td>
+                    <td>{{row.tipo}}</td>
+                    <td class="td-index-functions">
+                        <a [routerLink]="['edit', row.idAula]" class="btn btn-warning btn-icon"><i class="ti-pencil-alt"></i></a>
+                        <a [routerLink]="['details', row.idAula]" class="btn btn-info btn-icon"><i class="ti-search"></i></a>
+                        <button (click)="delete(row.idAula)" class="btn btn-danger btn-icon"><i class="ti-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls
+            class="index-pagination"
+            nextLabel="Siguiente"
+            previousLabel="Anterior" 
+            (pageChange)="changePage($event)">
+        </pagination-controls>
+    </ng-container>
+
+    <ng-template #empty>
+        <div class="row" *ngIf="loaded; else spinner">
+            <div class="col-md-12">
+                <div class="alert alert-warning index-alert-empty" data-notify="container">
+                    <span data-notify="icon" class="ti-info-alt"></span>
+                    <span data-notify="message">No se encontraron registros para mostrar. <button (click)="add()" class="btn btn-simple">Crear aula</button></span>
+                </div>
+            </div>
+            
+        </div>
+    </ng-template>
+    <ng-template #spinner>
+        <p class="spinner-p">
+            <img src="../../../assets/img/spinner.svg" alt="">
+        </p>        
+    </ng-template>
+
+    
+
+</div>
