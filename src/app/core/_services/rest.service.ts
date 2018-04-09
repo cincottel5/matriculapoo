@@ -30,7 +30,7 @@ export abstract class RestService {
      * @param params 
      */
     protected stringParams(page: number = 1, sort = null, search = null) {
-        //let stringParams = `?size=${10}`;
+        //let stringParams = `?size=10`;
         let stringParams = '';
 
         if (page != null && page != 1)  stringParams += `&page=${page}`;

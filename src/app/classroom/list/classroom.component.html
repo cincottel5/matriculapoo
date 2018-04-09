@@ -8,7 +8,7 @@
 </div>
 
 <div class="content table-responsive table-full-width">
-    <ng-container *ngIf="count > 0 && loaded; else empty">
+    <div *ngIf="count > 0 && loaded; else empty">
         <table class="table table-striped" >
             <thead>
                 <tr>
@@ -43,14 +43,15 @@
                 </tr>
             </tbody>
         </table>
+
         <pagination-controls
             class="index-pagination"
             nextLabel="Siguiente"
             previousLabel="Anterior" 
             (pageChange)="changePage($event)">
         </pagination-controls>
-    </ng-container>
-
+    </div>
+    
     <ng-template #empty>
         <div class="row" *ngIf="loaded; else spinner">
             <div class="col-md-12">
