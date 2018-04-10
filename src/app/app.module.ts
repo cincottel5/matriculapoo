@@ -10,6 +10,9 @@ import { HomeRouting } from './home/home.routing';
 import { ClassroomModule } from './classroom/classroom.module';
 import { ClassroomRouting } from './classroom/classroom.routing';
 
+import { TeacherModule } from './teacher/teacher.module';
+import { TeacherRouting } from './teacher/teacher.routing';
+
 import { AppComponent } from './app.component';
 
 import { AppRoutes } from './app.routing';
@@ -29,6 +32,8 @@ import { AppRoutes } from './app.routing';
     HomeRouting,
     ClassroomModule,
     ClassroomRouting,
+    TeacherModule,
+    TeacherRouting,
     AppRoutes
   ],
   providers: [],

@@ -1,0 +1,33 @@
+<div class="header">
+    <h4 class="title">Detalle de aula</h4>
+</div>
+<div class="content detail-content">
+    <!--<div class="row">
+        <div class="col-md-3">Identificador</div>
+        <div class="col-md-6">{{classroom.idAula}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Tipo</div>
+        <div class="col-md-6">{{classroom.tipo}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Área</div>
+        <div class="col-md-6">{{classroom.area}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Número de aula</div>
+        <div class="col-md-6">{{classroom.numeroAula}}</div>
+    </div>-->
+
+    <div class="row">
+            <div class="col-md-12">
+                    <a [routerLink]="['/teachers/edit/', teacher.profesorKey.idProfesor]" class="btn btn-wd btn-warning btn-fill btn-move-left">
+                        <span class="btn-label"><i class="ti-angle-left"></i></span> Editar
+                    </a>
+                
+                <a [routerLink]="['/teachers']" class="btn btn-wd btn-default btn-fill btn-move-left">
+                    <span class="btn-label"><i class="ti-angle-left"></i></span> Volver
+                </a>
+            </div>
+        </div>
+</div>
