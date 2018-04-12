@@ -1,0 +1,78 @@
+<div class="header">
+    <h4 class="title">{{title}}</h4>
+</div>
+<div class="content">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Código</label>
+                    <input 
+                        [(ngModel)]="career.codigo" 
+                        class="form-control border-input"
+                        formControlName="codigo" 
+                        placeholder="Código"
+                        value="{{career.codigo}}">
+                    <span 
+                        *ngIf="form.controls.codigo.touched && !form.controls.codigo.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" >Nombre</label>
+                    <input 
+                        [(ngModel)]="career.nombre" 
+                        class="form-control border-input"
+                        formControlName="nombre" 
+                        placeholder="Nombre de la carrera"
+                        value="{{career.nombre}}">
+                    <span 
+                        *ngIf="form.controls.nombre.touched && !form.controls.nombre.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="control-label" >Créditos</label>
+                    <input 
+                        [(ngModel)]="career.totalCreditos" 
+                        class="form-control border-input"
+                        formControlName="totalCreditos" 
+                        placeholder="Cantidad total de creditos"
+                        value="{{career.totalCreditos}}">
+                    <span 
+                        *ngIf="form.controls.totalCreditos.touched && !form.controls.totalCreditos.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-wd btn-success" type="submit">
+                    <span class="btn-label">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Guardar
+                </button>
+                
+                <a [routerLink]="['/careers']" class="btn btn-wd btn-default btn-fill btn-move-left">
+                    <span class="btn-label"><i class="ti-angle-left"></i></span> Volver
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

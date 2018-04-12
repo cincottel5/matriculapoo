@@ -1,0 +1,33 @@
+<div class="header">
+    <h4 class="title">Detalle de carrera</h4>
+</div>
+<div class="content detail-content">
+    <div class="row">
+        <div class="col-md-3">Identificador</div>
+        <div class="col-md-6">{{career.idCarrera}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Código</div>
+        <div class="col-md-6">{{career.codigo}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Nombre</div>
+        <div class="col-md-6">{{career.nombre}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Cantidad total de creditos</div>
+        <div class="col-md-6">{{career.totalCreditos}}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+                <a [routerLink]="['/careers/edit/', career.idCarrera]" class="btn btn-wd btn-warning btn-fill btn-move-left">
+                    <span class="btn-label"><i class="ti-angle-left"></i></span> Editar
+                </a>
+            
+            <a [routerLink]="['/careers']" class="btn btn-wd btn-default btn-fill btn-move-left">
+                <span class="btn-label"><i class="ti-angle-left"></i></span> Volver
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="header">
+    <h4 class="title">
+        <span>Administración de carreras</span> 
+        <div class="crud-list-functions float-right">
+            
+        </div>
+    </h4>
+</div>
+
+<div class="content table-responsive table-full-width">
+    <div *ngIf="count > 0 && loaded; else empty">
+        <table class="table table-striped" >
+            <thead>
+                <tr>
+                    <th>Identificador</th>
+                    <th >Código</th>
+                    <th>Nombre</th>
+                    <th>
+                        <button class="btn btn-wd btn-success" (click)="add()">
+                            <span class="btn-label">
+                                <i class="ti-plus"></i>
+                            </span>
+                            <span>Crear una carrera</span>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of data | paginate: { 
+                    itemsPerPage: 10,
+                    currentPage: page,
+                    totalItems: count}">
+                    <td>{{row.idCarrera}}</td>
+                    <td>{{row.codigo}}</td>
+                    <td>{{row.nombre}}</td>
+                    <td class="td-index-functions">
+                        <a [routerLink]="['edit', row.idCarrera]" class="btn btn-warning btn-icon"><i class="ti-pencil-alt"></i></a>
+                        <a [routerLink]="['details', row.idCarrera]" class="btn btn-info btn-icon"><i class="ti-search"></i></a>
+                        <button (click)="delete(row.idCarrera)" class="btn btn-danger btn-icon"><i class="ti-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <pagination-controls
+            class="index-pagination"
+            nextLabel="Siguiente"
+            previousLabel="Anterior" 
+            (pageChange)="changePage($event)">
+        </pagination-controls>
+    </div>
+    
+    <ng-template #empty>
+        <div class="row" *ngIf="loaded; else spinner">
+            <div class="col-md-12">
+                <div class="alert alert-warning index-alert-empty" data-notify="container">
+                    <span data-notify="icon" class="ti-info-alt"></span>
+                    <span data-notify="message">No se encontraron registros para mostrar. <button (click)="add()" class="btn btn-simple">Crear carrera</button></span>
+                </div>
+            </div>
+            
+        </div>
+    </ng-template>
+    <ng-template #spinner>
+        <p class="spinner-p">
+            <img src="../../../assets/img/spinner.svg" alt="">
+        </p>        
+    </ng-template>
+
+    
+
+</div>
