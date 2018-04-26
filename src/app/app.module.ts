@@ -19,13 +19,15 @@ import { CareerRouting } from './career/career.routing';
 import { AppComponent } from './app.component';
 
 import { AppRoutes } from './app.routing';
-
+import {CourseService} from '@app/core/_services/course.service';
+import {CourseModule} from '@app/course/course.module';
+import {CourseRouting} from '@app/course/course.routing';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,8 @@ import { AppRoutes } from './app.routing';
     HomeRouting,
     ClassroomModule,
     ClassroomRouting,
+    CourseModule,
+    CourseRouting,
     TeacherModule,
     TeacherRouting,
     CareerModule,

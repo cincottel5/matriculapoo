@@ -14,8 +14,8 @@ export const ROUTES: RouteInfo[] = [
     { path: 'classrooms', title: 'Aulas',  icon:'ti-blackboard', class: '' },
     { path: 'careers', title: 'Carreras',  icon:'ti-view-list-alt', class: '' },
     { path: 'teachers', title: 'Profesores',  icon:'ti-user', class: '' },
-    { path: 'prueba', title: 'Carreras',  icon:'ti-bag', class: '' },
-    { path: 'prueba', title: 'Materias',  icon:'ti-book', class: '' }
+    { path: 'careers', title: 'Carreras',  icon:'ti-bag', class: '' },
+    { path: 'courses', title: 'Materias',  icon:'ti-book', class: '' }
 ];
 
 @Component({
@@ -29,8 +29,8 @@ export class SidebarComponent implements OnInit {
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
     }
-    isNotMobileMenu(){
-        if($(window).width() > 991){
+    isNotMobileMenu() {
+        if ($(window).width() > 991) {
             return false;
         }
         return true;
