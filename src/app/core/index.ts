@@ -8,10 +8,12 @@ export * from './_services/classroom.service';
 export * from './_services/teacher.service';
 export * from './_services/career.service';
 export * from './_services/person.service';
+export * from './_services/student.service';
 
 export * from './_models/classroom';
 export * from './_models/teacher';
 export * from './_models/person';
 export * from './_models/career';
+export * from './_models/student';
 
 export * from './_helpers/notification.helper';
