@@ -1,16 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 import { RestResponse } from './rest-response';
+import { environment } from '@env/environment';
 
 /**
  * Class defines general information for api calls
  */
 export abstract class RestService {
-    /**
-     * Base url for api spring 
-     */
-    protected baseUrl =  'http://localhost:8080/api/';
-
+    
+    public relativeUrl:string = '/';
+    
     constructor( protected _http: HttpClient ) { }
 
     /**
@@ -44,14 +43,14 @@ export abstract class RestService {
      * Get http calls to api go through this function
      */
     protected get(relativeUrl: string) {
-        return this._http.get<RestResponse>(this.baseUrl+relativeUrl, this.setHeaders());
+        return this._http.get<RestResponse>(environment.baseUrl+relativeUrl, this.setHeaders());
     }
 
     /**
      * Post http calls to api go through this function
      */
     protected post(relativeUrl: string, object: any ) {
-        return this._http.post<RestResponse>(this.baseUrl+relativeUrl, JSON.stringify(object), this.setHeaders());
+        return this._http.post<RestResponse>(environment.baseUrl+relativeUrl, JSON.stringify(object), this.setHeaders());
     }
 
     /**
@@ -60,7 +59,7 @@ export abstract class RestService {
      * @param object 
      */
     protected put(relativeUrl: string, object: any ) {
-        return this._http.put<RestResponse>(this.baseUrl+relativeUrl, JSON.stringify(object), this.setHeaders());
+        return this._http.put<RestResponse>(environment.baseUrl+relativeUrl, JSON.stringify(object), this.setHeaders());
     }
 
     /**
@@ -70,7 +69,7 @@ export abstract class RestService {
      */
     protected delete(relativeUrl: string, id: number){
         if (id) {
-            return this._http.delete<RestResponse>(this.baseUrl+relativeUrl+'/'+id, this.setHeaders());
+            return this._http.delete<RestResponse>(environment.baseUrl+relativeUrl+'/'+id, this.setHeaders());
         } else {
             throw new Error("No se puede ejecutar esta instrucción sin la definición del id");
         }

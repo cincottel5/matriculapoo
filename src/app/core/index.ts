@@ -13,5 +13,4 @@ export * from './_models/teacher';
 export * from './_models/person';
 export * from './_models/career';
 
-
 export * from './_helpers/notification.helper';
