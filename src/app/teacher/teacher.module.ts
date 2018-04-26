@@ -11,6 +11,7 @@ import { TeacherFormComponent } from './form/teacher-form.component';
 import { TeacherDetailComponent } from './detail/teacher-detail.component';
 
 import { TeacherService } from '@app/core';
+import { PersonService } from '@app/core';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { TeacherService } from '@app/core';
     TeacherDetailComponent
   ],
   providers: [
-    TeacherService
+    TeacherService, 
+    PersonService
   ]
 })
 

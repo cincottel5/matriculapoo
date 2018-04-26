@@ -7,6 +7,7 @@ export * from './_components/sidebar/sidebar.component';
 export * from './_services/classroom.service';
 export * from './_services/teacher.service';
 export * from './_services/career.service';
+export * from './_services/person.service';
 
 export * from './_models/classroom';
 export * from './_models/teacher';

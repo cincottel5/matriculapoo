@@ -2,26 +2,34 @@
     <h4 class="title">Detalle de aula</h4>
 </div>
 <div class="content detail-content">
-    <!--<div class="row">
+    <div class="row">
         <div class="col-md-3">Identificador</div>
-        <div class="col-md-6">{{classroom.idAula}}</div>
+        <div class="col-md-6">{{(item|async)?.response.profesorKey.idProfesor}}</div>
     </div>
     <div class="row">
-        <div class="col-md-3">Tipo</div>
-        <div class="col-md-6">{{classroom.tipo}}</div>
+        <div class="col-md-3">Cédula</div>
+        <div class="col-md-6">{{(item|async)?.response.profesorKey.persona.cedula}}</div>
     </div>
     <div class="row">
-        <div class="col-md-3">Área</div>
-        <div class="col-md-6">{{classroom.area}}</div>
+        <div class="col-md-3">Nombre</div>
+        <div class="col-md-6">{{(item|async)?.response.profesorKey.persona.nombre}}</div>
     </div>
     <div class="row">
-        <div class="col-md-3">Número de aula</div>
-        <div class="col-md-6">{{classroom.numeroAula}}</div>
-    </div>-->
+        <div class="col-md-3">Edad</div>
+        <div class="col-md-6">{{(item|async)?.response.profesorKey.persona.edad}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Género</div>
+        <div class="col-md-6">{{(item|async)?.response.profesorKey.persona.sexo}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Especialidad</div>
+        <div class="col-md-6">{{(item|async)?.response.especialidad}}</div>
+    </div>
 
     <div class="row">
             <div class="col-md-12">
-                    <a [routerLink]="['/teachers/edit/', teacher.profesorKey.idProfesor]" class="btn btn-wd btn-warning btn-fill btn-move-left">
+                    <a [routerLink]="['/teachers/edit/', (item|async)?.response.profesorKey.idProfesor]" class="btn btn-wd btn-warning btn-fill btn-move-left">
                         <span class="btn-label"><i class="ti-angle-left"></i></span> Editar
                     </a>
                 
