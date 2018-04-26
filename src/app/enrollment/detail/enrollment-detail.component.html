@@ -1,0 +1,41 @@
+<div class="header">
+    <h4 class="title">Detalle de aula</h4>
+</div>
+<div class="content detail-content">
+    <div class="row">
+        <div class="col-md-3">Identificador</div>
+        <div class="col-md-6">{{enrollment.idMatricula}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Fecha</div>
+        <div class="col-md-6">{{enrollment.fecha}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Estudiante</div>
+        <div class="col-md-6">
+            {{enrollment.alumno.alumnoKey.persona.nombre}} 
+            {{enrollment.alumno.alumnoKey.persona.apellido}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Monto</div>
+        <div class="col-md-6">{{enrollment.monto}}</div>
+    </div>
+
+    <div class="row">
+            <div class="col-md-3">Total</div>
+            <div class="col-md-6">{{enrollment.total}}</div>
+        </div>
+
+    <div class="row">
+            <div class="col-md-12">
+                    <a [routerLink]="['/enrollments/edit/', enrollment.idMatricula]" class="btn btn-wd btn-warning btn-fill btn-move-left">
+                        <span class="btn-label"><i class="ti-angle-left"></i></span> Editar
+                    </a>
+                
+                <a [routerLink]="['/enrollments']" class="btn btn-wd btn-default btn-fill btn-move-left">
+                    <span class="btn-label"><i class="ti-angle-left"></i></span> Volver
+                </a>
+            </div>
+        </div>
+</div>

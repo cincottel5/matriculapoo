@@ -19,6 +19,9 @@ import { CareerRouting } from './career/career.routing';
 import { StudentModule } from './student/student.module';
 import { StudentRouting } from './student/student.routing';
 
+import { EnrollmentModule } from './enrollment/enrollment.module';
+import { EnrollmentRouting } from './enrollment/enrollment.routing';
+
 import { AppComponent } from './app.component';
 
 import { AppRoutes } from './app.routing';
@@ -42,6 +45,8 @@ import { AppRoutes } from './app.routing';
     CareerRouting,
     StudentModule,
     StudentRouting,
+    EnrollmentModule,
+    EnrollmentRouting,
     AppRoutes
   ],
   providers: [],

@@ -74,7 +74,7 @@ export class StudentFormComponent implements OnInit{
                                 this.student.carrera = this.careersArray
                                 .find(x => x.idCarrera == this.form.controls.carrera.value);
                             } else {
-                                this.student.carrera == this.career;
+                                this.student.carrera = this.career;
                             }
                             
                             this._studentService.edit(this.student).subscribe(
