@@ -30,7 +30,8 @@
                         [(ngModel)]="enrollment.monto" 
                         class="form-control border-input"
                         formControlName="monto" 
-                        placeholder="Monto">
+                        placeholder="Monto"
+                        readonly>
                     <span 
                         *ngIf="form.controls.monto.touched && !form.controls.monto.valid" 
                         class="help-block">

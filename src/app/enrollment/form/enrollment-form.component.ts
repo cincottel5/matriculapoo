@@ -38,6 +38,7 @@ export class EnrollmentFormComponent implements OnInit{
     enrollmentDetails;
     enrollmentDetailsArray = [];
     dbEnrollments;
+    total = 0;
 
     constructor(
         fb: FormBuilder,
@@ -86,6 +87,7 @@ export class EnrollmentFormComponent implements OnInit{
                             this.enrollmentDetailsArray = erRes.response;
                             for (let rc of erRes.response) {
                                 this.selectCoursesArray.push(rc.materia);
+                                this.total += rc.materia.costo;
                             }
                         }
                         
@@ -166,7 +168,8 @@ export class EnrollmentFormComponent implements OnInit{
             let newCourse = this.coursesArray.find(x => x.idMateria == this.form.controls.curso.value);
             
             if (this.selectCoursesArray.find(x=> x.idMateria == newCourse.idMateria) == null) {
-                this.selectCoursesArray.push(newCourse);    
+                this.selectCoursesArray.push(newCourse);  
+                this.calculateTotal();   
             } else {
                 Notification.notify('Esa materia ya se agregó');
             }  
@@ -193,6 +196,7 @@ export class EnrollmentFormComponent implements OnInit{
             }
             
             this.selectCoursesArray = this.selectCoursesArray.filter(x=> x.idMateria != id);
+            this.calculateTotal();
         }
     }
 
@@ -227,4 +231,14 @@ export class EnrollmentFormComponent implements OnInit{
             Notification.notify('La matrícula se creó exitosamente.', 'success');       
         }
     }
-}
+
+    calculateTotal() {
+        
+        let total = 0;
+        for (let c of this.selectCoursesArray) {
+            total += c.costo;
+        }
+        
+        this.enrollment.monto = total;
+    }
+ }
