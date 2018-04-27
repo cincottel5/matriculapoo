@@ -28,8 +28,7 @@ import { AuthGuard } from '@app/core';
     CareerDetailComponent
   ],
   providers: [
-    CareerService, 
-    AuthGuard
+    CareerService
   ]
 })
 

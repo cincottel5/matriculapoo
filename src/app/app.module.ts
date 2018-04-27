@@ -28,6 +28,8 @@ import { LoginComponent } from './login/login.component';
 
 import { AppRoutes } from './app.routing';
 
+import { AuthGuard } from '@app/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,7 @@ import { AppRoutes } from './app.routing';
     EnrollmentRouting,
     AppRoutes
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

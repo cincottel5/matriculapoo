@@ -24,5 +24,6 @@ export * from './_models/student';
 export * from './_models/enrollment';
 export * from './_models/user';
 export * from './_models/course';
+export * from './_models/person.factory';
 
 export * from './_helpers/notification.helper';

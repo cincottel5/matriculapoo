@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { StudentService, Student, Notification } from '@app/core';
+import { StudentService, Student, Notification, PersonFactory } from '@app/core';
 
 @Component({
     templateUrl: 'student-detail.component.html'
@@ -8,13 +8,15 @@ import { StudentService, Student, Notification } from '@app/core';
 
 export class StudentDetailComponent implements OnInit {
     id;
-    student: Student;
+    student;
     item
 
     constructor( 
         private _router: Router, 
         private _route: ActivatedRoute, 
-        private _studentService: StudentService ) {
+        private _studentService: StudentService,
+        private _personFactory: PersonFactory ) {
+            this.student = this._personFactory.getPerson('student');
     }
     
     ngOnInit() {

@@ -11,7 +11,6 @@ import { ClassroomFormComponent } from './form/classroom-form.component';
 import { ClassroomDetailComponent } from './detail/classroom-detail.component';
 
 import { ClassroomService } from '@app/core';
-import { AuthGuard } from '@app/core';
 
 @NgModule({
   imports: [
@@ -28,8 +27,7 @@ import { AuthGuard } from '@app/core';
     ClassroomDetailComponent
   ],
   providers: [
-    ClassroomService,
-    AuthGuard
+    ClassroomService
   ]
 })
 

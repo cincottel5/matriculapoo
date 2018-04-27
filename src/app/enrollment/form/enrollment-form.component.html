@@ -51,7 +51,7 @@
                         formControlName="alumno" 
                         placeholder="Estudiante">
                         <option *ngFor="let at of (students|async)?.response" 
-                            [value]="at.alumnoKey.idAlumno">
+                            [value]="at.alumnoKey.idAlumno"> 
                             {{at.alumnoKey.persona.nombre}}
                             {{at.alumnoKey.persona.apellido}}
                         </option>
