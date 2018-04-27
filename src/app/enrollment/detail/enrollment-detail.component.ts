@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EnrollmentService, Enrollment, Notification } from '@app/core';
+import { EnrollmentService, Enrollment, EnrollmentDetailService, Notification } from '@app/core';
 
 @Component({
     templateUrl: 'enrollment-detail.component.html'
@@ -8,12 +8,14 @@ import { EnrollmentService, Enrollment, Notification } from '@app/core';
 
 export class EnrollmentDetailComponent implements OnInit {
     id;
-    enrollment: Enrollment;
+    enrollment;
+    enrollmentDetails;
 
     constructor( 
         private _router: Router, 
         private _route: ActivatedRoute, 
-        private _enrollmentService: EnrollmentService ) {
+        private _enrollmentService: EnrollmentService,
+        private _enrollmentDetailService: EnrollmentDetailService ) {
     }
     
     ngOnInit() {
@@ -21,19 +23,14 @@ export class EnrollmentDetailComponent implements OnInit {
             this.id = params['id'];
 
             if (this.id) {
-                this._enrollmentService.find(this.id).subscribe(
-                    data => {
-                        if (data.response != null) {
-                            this.enrollment = data.response;
-                        } else {
-                            this._router.navigate(['enrollments']);    
-                            Notification.notify('No se encontró la matrícula que se especificó.', 'warning');       
-                        }
-                    },
-                    error => Notification.notify('Ha ocurrido un error.', 'error')
-                );
+                this.enrollment =  this._enrollmentService.find(this.id);
+                this.enrollmentDetails = this._enrollmentDetailService.find(this.id);
             } 
         });
+    }
+
+    redirectEdit() {
+        this._router.navigate(['enrollments/edit', this.id]);
     }
 
 }
