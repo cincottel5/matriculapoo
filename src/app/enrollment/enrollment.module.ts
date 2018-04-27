@@ -11,6 +11,8 @@ import { EnrollmentFormComponent } from './form/enrollment-form.component';
 import { EnrollmentDetailComponent } from './detail/enrollment-detail.component';
 
 import { EnrollmentService } from '@app/core';
+import { EnrollmentDetailService } from '@app/core';
+import { CourseService } from '@app/core';
 import { UserService } from '@app/core';
 import { DatePipe } from '@angular/common';
 
@@ -31,7 +33,9 @@ import { DatePipe } from '@angular/common';
   providers: [
     EnrollmentService,
     UserService,
-    DatePipe
+    DatePipe,
+    EnrollmentDetailService,
+    CourseService
   ]
 })
 

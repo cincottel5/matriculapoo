@@ -64,6 +64,47 @@
             </div>
         </div>
 
+        <h5 class="title">Materias</h5>
+        
+        <div id="courses-list" class="row">
+            <ul class="list-unstyled col-md-6">
+                <li  *ngFor="let course of selectCoursesArray">
+                    <span class="col-md-7">{{course.nombre}} </span>
+                    <span class="col-md-1">
+                        <button (click)="removeCourse(course.idMateria)" class="btn btn-simple btn-danger" type="button"><i class="ti-close"></i></button>
+                    </span>
+                    
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Cursos</label>
+                    <select  
+                        class="form-control border-input"
+                        formControlName="curso" 
+                        placeholder="Curso">
+                        <option *ngFor="let c of (courses|async)?.response"
+                            [value]="c.idMateria"
+                        >
+                            {{c.nombre}}                
+                        </option>
+                    </select>
+                    <button type="button" class="btn btn-simple" (click)="addCourse()" >
+                        <i class="ti-plus"></i>
+                        Agregar</button>
+                    <span 
+                        *ngIf="form.controls.curso.touched && !form.controls.curso.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
         <div class="row">
             <div class="col-md-12">
                 <button class="btn btn-wd btn-success" type="submit">
@@ -78,5 +119,7 @@
                 </a>
             </div>
         </div>
+
+
     </form>
 </div>
