@@ -50,7 +50,9 @@
                         class="form-control border-input"
                         formControlName="totalCreditos" 
                         placeholder="Cantidad total de creditos"
-                        value="{{career.totalCreditos}}">
+                        value="{{career.totalCreditos}}"
+                        type="number"
+                        min="1">
                     <span 
                         *ngIf="form.controls.totalCreditos.touched && !form.controls.totalCreditos.valid" 
                         class="help-block">
