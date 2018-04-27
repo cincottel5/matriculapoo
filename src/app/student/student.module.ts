@@ -12,6 +12,7 @@ import { StudentDetailComponent } from './detail/student-detail.component';
 
 import { StudentService } from '@app/core';
 import { PersonService } from '@app/core';
+import { AuthGuard } from '@app/core';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { PersonService } from '@app/core';
   ],
   providers: [
     StudentService, 
-    PersonService
+    PersonService,
+    AuthGuard
   ]
 })
 

@@ -326,6 +326,14 @@ hr {
   height: 100vh;
 }
 
+/* desde aqui */
+#card-login{
+  box-shadow: none!important;
+}
+
+/* hasta aqui */
+
+
 .sidebar {
   position: absolute;
   top: 0;
@@ -1003,6 +1011,12 @@ hr {
 .btn-sm.btn-simple {
   padding: 6px 10px;
 }
+
+.login-page > .content,
+.lock-page > .content {
+  padding-top: 20vh;
+}
+
 
 .btn-xs {
   font-size: 12px;
@@ -3987,3 +4001,5 @@ Copyright (c) 2015 Daniel Eden
     display: none;
   }
 }
+
+

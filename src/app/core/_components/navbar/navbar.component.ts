@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit{
     private nativeElement: Node;
     private toggleButton;
     private sidebarVisible: boolean;
+    user;
 
     @ViewChild("navbar-cmp") button;
 
@@ -25,6 +26,7 @@ export class NavbarComponent implements OnInit{
     }
 
     ngOnInit(){
+        this.user = localStorage.getItem("username")
         this.listTitles = ROUTES.filter(listTitle => listTitle);
         var navbar : HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
@@ -54,5 +56,10 @@ export class NavbarComponent implements OnInit{
             this.sidebarVisible = false;
             body.classList.remove('nav-open');
         }
+    }
+
+    closeSession(){
+        localStorage.removeItem("username");
+        window.location.reload();
     }
 }

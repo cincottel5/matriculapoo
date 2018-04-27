@@ -14,6 +14,7 @@ export * from './_services/user.service';
 export * from './_services/course.service';
 export * from './_services/enrollment-detail.service';
 
+export * from './_guards/auth.guard';
 
 export * from './_models/classroom';
 export * from './_models/teacher';

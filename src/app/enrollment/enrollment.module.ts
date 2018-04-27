@@ -16,6 +16,8 @@ import { CourseService } from '@app/core';
 import { UserService } from '@app/core';
 import { DatePipe } from '@angular/common';
 
+import { AuthGuard } from '@app/core';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -35,7 +37,8 @@ import { DatePipe } from '@angular/common';
     UserService,
     DatePipe,
     EnrollmentDetailService,
-    CourseService
+    CourseService,
+    AuthGuard
   ]
 })
 

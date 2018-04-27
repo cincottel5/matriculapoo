@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreModule } from '@app/core';
 
@@ -23,18 +24,20 @@ import { EnrollmentModule } from './enrollment/enrollment.module';
 import { EnrollmentRouting } from './enrollment/enrollment.routing';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 import { AppRoutes } from './app.routing';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     CoreModule,
+    ReactiveFormsModule,
     HomeModule,
     HomeRouting,
     ClassroomModule,
