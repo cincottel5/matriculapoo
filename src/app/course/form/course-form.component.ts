@@ -23,9 +23,10 @@ export class CourseFormComponent implements OnInit {
         private _route: ActivatedRoute) {
 
         this.form = fb.group({
-            tipo: ['', Validators.required],
-            numeroAula: ['', Validators.required],
-            area: ['', Validators.required]
+            creditos: ['', Validators.required],
+            codigo: ['', Validators.required],
+            nombre: ['', Validators.required],
+            costo: ['', Validators.required]
         });
     }
 
@@ -33,26 +34,26 @@ export class CourseFormComponent implements OnInit {
         this._route.params.subscribe( (params) => {
             this.id = params['id'];
 
-            if (this.id){
-                this.title = 'Editar aula';
+            if (this.id) {
+                this.title = 'Editar materia';
 
                 this._courseService.find(this.id).subscribe( (c) => {
                     this.course = c.response;
                 });
             } else {
-                this.title = 'Crear aula';
+                this.title = 'Crear materia';
             }
         });
     }
 
     submit() {
         if (null == this.form.errors) {
-            if (this.id) { //Edit
+            if (this.id) { // Edit
                 this.course.idMateria = this.id;
 
                 this._courseService.edit(this.course).subscribe(
                     data => {
-                        if (data.httpStatus == 200) {
+                        if (data.httpStatus === 200) {
                             this._router.navigate(['courses']);
                             Notification.notify('El aula se actualizó exitosamente.', 'success');
                         } else {
@@ -62,11 +63,12 @@ export class CourseFormComponent implements OnInit {
                     error => Notification.notify('Ha ocurrido un eror.', 'error')
                 );
             } else { // Create
+              console.log(this.course)
                 this._courseService.create(this.course).subscribe(
                     data => {
-                        if (data.httpStatus == 200) {
+                        if (data.httpStatus === 200) {
                             this._router.navigate(['courses']);
-                            Notification.notify('El aula se creó exitosamente.', 'success');
+                            Notification.notify('La materia se creó exitosamente.', 'success');
                         } else {
                             Notification.notify('Ha ocurrido un error.', 'error');
                         }

@@ -1,4 +1,4 @@
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import {CourseComponent} from './list/course.component';
 import { CourseFormComponent} from './form/course-form.component';

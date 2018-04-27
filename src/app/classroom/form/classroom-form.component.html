@@ -7,14 +7,14 @@
             <div class="col-md-6 col-sm-12">
                 <div class="form-group">
                     <label class="control-label" >Número de aula</label>
-                    <input 
-                        [(ngModel)]="classroom.numeroAula" 
+                    <input
+                        [(ngModel)]="classroom.numeroAula"
                         class="form-control border-input"
-                        formControlName="numeroAula" 
+                        formControlName="numeroAula"
                         placeholder="Número de aula"
                         value="{{classroom.numeroAula}}">
-                    <span 
-                        *ngIf="form.controls.numeroAula.touched && !form.controls.numeroAula.valid" 
+                    <span
+                        *ngIf="form.controls.numeroAula.touched && !form.controls.numeroAula.valid"
                         class="help-block">
                         Este campo contiene errores
                     </span>
@@ -26,14 +26,14 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label" >Área</label>
-                    <input 
-                        [(ngModel)]="classroom.area" 
+                    <input
+                        [(ngModel)]="classroom.area"
                         class="form-control border-input"
-                        formControlName="area" 
+                        formControlName="area"
                         placeholder="Nombre del área"
                         value="{{classroom.area}}">
-                    <span 
-                        *ngIf="form.controls.area.touched && !form.controls.area.valid" 
+                    <span
+                        *ngIf="form.controls.area.touched && !form.controls.area.valid"
                         class="help-block">
                         Este campo contiene errores
                     </span>
@@ -45,18 +45,18 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label" >Tipo</label>
-                    <select 
-                        [(ngModel)]="classroom.tipo" 
+                    <select
+                        [(ngModel)]="classroom.tipo"
                         class="form-control border-input"
-                        formControlName="tipo" 
+                        formControlName="tipo"
                         placeholder="Tipo de aula"
                         value="{{classroom.tipo}}">
-                        <option *ngFor="let at of classroomTypes" 
+                        <option *ngFor="let at of classroomTypes"
                             [value]="at"
                             [selected]="at === classroom.tipo">{{at}}</option>
                     </select>
-                    <span 
-                        *ngIf="form.controls.tipo.touched && !form.controls.tipo.valid" 
+                    <span
+                        *ngIf="form.controls.tipo.touched && !form.controls.tipo.valid"
                         class="help-block">
                         Este campo contiene errores
                     </span>
@@ -72,7 +72,7 @@
                     </span>
                     Guardar
                 </button>
-                
+
                 <a [routerLink]="['/classrooms']" class="btn btn-wd btn-default btn-fill btn-move-left">
                     <span class="btn-label"><i class="ti-angle-left"></i></span> Volver
                 </a>

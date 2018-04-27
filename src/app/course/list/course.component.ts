@@ -31,6 +31,7 @@ export class CourseComponent implements OnInit {
             this.count = res.response.length;
             this.loaded = true;
         });
+        console.log(this.data)
     }
 
     changePage(event){
@@ -39,7 +40,7 @@ export class CourseComponent implements OnInit {
     }
 
     add() {
-        this._router.navigate(['course/add']);
+        this._router.navigate(['courses/add']);
     }
 
     delete(id: number) {

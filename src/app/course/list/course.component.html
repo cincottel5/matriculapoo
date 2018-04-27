@@ -13,9 +13,10 @@
             <thead>
                 <tr>
                     <th>Identificador</th>
-                    <th >Número</th>
-                    <th>Area</th>
-                    <th>Tipo</th>
+                    <th >Codigo</th>
+                    <th>Nombre</th>
+                    <th>Creditos</th>
+                    <th>Costo</th>
                     <th>
                         <button class="btn btn-wd btn-success" (click)="add()">
                             <span class="btn-label">
@@ -32,9 +33,10 @@
                     currentPage: page,
                     totalItems: count}">
                     <td>{{row.idMateria}}</td>
-                    <td>{{row.numeroMateria}}</td>
-                    <td>{{row.area}}</td>
-                    <td>{{row.tipo}}</td>
+                    <td>{{row.codigo}}</td>
+                    <td>{{row.nombre}}</td>
+                    <td>{{row.creditos}}</td>
+                    <td>{{row.costo}}</td>
                     <td class="td-index-functions">
                         <a [routerLink]="['edit', row.idMaterio]" class="btn btn-warning btn-icon"><i class="ti-pencil-alt"></i></a>
                         <a [routerLink]="['details', row.idMateria]" class="btn btn-info btn-icon"><i class="ti-search"></i></a>

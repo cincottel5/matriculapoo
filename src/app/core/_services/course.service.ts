@@ -15,6 +15,7 @@ export class CourseService extends RestService{
      */
     list(page, sort, search) {
         let params = this.stringParams(page, sort, search);
+        console.log(this.get(`/materia${params}`));
         return this.get(`/materia${params}`);
     }
 
@@ -28,7 +29,7 @@ export class CourseService extends RestService{
 
     /**
      * Create Course to api with post method
-     * @param Course
+     * @param course
      */
     create(course: Course) {
         return this.post('/materia', course);
@@ -36,7 +37,7 @@ export class CourseService extends RestService{
 
     /**
      * Update Course to api with put method
-     * @param classroom
+     * @param course
      */
     edit(course: Course) {
         return this.put(`/materia/${course.idMateria}`, course);
