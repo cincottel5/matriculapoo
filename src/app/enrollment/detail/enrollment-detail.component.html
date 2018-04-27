@@ -1,0 +1,45 @@
+<div class="header">
+    <h4 class="title">Detalle de aula</h4>
+</div>
+<div class="content detail-content">
+    <div class="row">
+        <div class="col-md-3">Identificador</div>
+        <div class="col-md-6">{{(enrollment|async)?.response.idMatricula}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Fecha</div>
+        <div class="col-md-6">{{(enrollment|async)?.response.fecha}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Estudiante</div>
+        <div class="col-md-6">
+            {{(enrollment|async)?.response.alumno.alumnoKey.persona.nombre}} 
+            {{(enrollment|async)?.response.alumno.alumnoKey.persona.apellido}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Monto</div>
+        <div class="col-md-6">{{(enrollment|async)?.response.monto}}</div>
+    </div>
+
+    <h5 class="title">Materias</h5>
+    <div id="courses-list" class="row">
+            <ul class="list-unstyled col-md-6">
+                <li  *ngFor="let detail of (enrollmentDetails|async)?.response">
+                    <span class="col-md-7">{{detail.materia.nombre}} </span>
+                </li>
+            </ul>
+        </div>
+
+    <div class="row">
+            <div class="col-md-12">
+                    <a (click)="redirectEdit()" class="btn btn-wd btn-warning btn-fill btn-move-left">
+                        <span class="btn-label"><i class="ti-angle-left"></i></span> Editar
+                    </a>
+                
+                <a [routerLink]="['/enrollments']" class="btn btn-wd btn-default btn-fill btn-move-left">
+                    <span class="btn-label"><i class="ti-angle-left"></i></span> Volver
+                </a>
+            </div>
+        </div>
+</div>

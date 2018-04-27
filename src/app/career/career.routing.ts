@@ -4,14 +4,16 @@ import { CareerComponent } from './list/career.component';
 import { CareerFormComponent } from './form/career-form.component';
 import { CareerDetailComponent } from './detail/career-detail.component';
 
+import { AuthGuard } from '@app/core';
+
 export const CareerRouting = RouterModule.forChild([
     {
         path: 'careers',
         children: [
-            { path: '', component: CareerComponent },
-            { path: 'add', component: CareerFormComponent },
-            { path: 'edit/:id', component: CareerFormComponent },
-            { path: 'details/:id', component: CareerDetailComponent }
+            { path: '', canActivate: [AuthGuard], component: CareerComponent },
+            { path: 'add', canActivate: [AuthGuard],component: CareerFormComponent },
+            { path: 'edit/:id', canActivate: [AuthGuard],component: CareerFormComponent },
+            { path: 'details/:id', canActivate: [AuthGuard],component: CareerDetailComponent }
         ]
     }
 ])

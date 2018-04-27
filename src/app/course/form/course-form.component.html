@@ -80,6 +80,32 @@
     </div>
 
     <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="control-label">Carrera</label>
+          <select
+            [(ngModel)]="carrera.idCarrera"
+            class="form-control border-input"
+            formControlName="carrer"
+            placeholder="Estudiante">
+            <option *ngFor="let career of (careers|async).response"
+                    [value]="career">
+              {{career.nombre}}
+            </option>
+          </select>
+          {{(careers| async).response | json}}
+          <span
+            *ngIf="form.controls.carrer.touched && !form.controls.carrer.valid"
+            class="help-block">
+            Este campo contiene errores
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row">
       <div class="col-md-12">
         <button class="btn btn-wd btn-success" type="submit">
           <span class="btn-label">

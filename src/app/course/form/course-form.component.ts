@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Notification } from '@app/core';
+import {Career, CareerService, Classroom, ClassroomService, Notification} from '@app/core';
 import {CourseService} from '@app/core/_services/course.service';
 import { Course } from '../../core/_models/course';
 
@@ -15,11 +15,24 @@ export class CourseFormComponent implements OnInit {
     form: FormGroup;
     title: string;
     course = new Course();
+    classroom = new Classroom();
+    career = new Career();
+
+    careers;
+    careerArray;
+    selectedCareer;
+    classrooms;
+    classroomArray;
+    selectedClassroom;
+
+
 
     constructor(
         fb: FormBuilder,
         private _router: Router,
         private _courseService: CourseService,
+        private _careerService: CareerService,
+        private _classroomService: ClassroomService,
         private _route: ActivatedRoute) {
 
         this.form = fb.group({
@@ -32,6 +45,17 @@ export class CourseFormComponent implements OnInit {
 
     ngOnInit() {
         this._route.params.subscribe( (params) => {
+          this.classrooms = this._classroomService.list(1,'','')
+          this.classrooms.subscribe( (data) => {
+            this.classroomArray = data.response;
+          });
+
+          this.careers = this._careerService.list(1,'','');
+          this.careers.subscribe( data => {
+              this.careerArray = data.response;
+              console.log(this.careerArray);
+          });
+
             this.id = params['id'];
 
             if (this.id) {

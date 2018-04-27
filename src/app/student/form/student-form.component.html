@@ -1,0 +1,160 @@
+<div class="header">
+    <h4 class="title">{{title}}</h4>
+</div>
+<div class="content">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="">
+        
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Cédula</label>
+                    <input 
+                        [(ngModel)]="person.cedula" 
+                        class="form-control border-input"
+                        formControlName="cedula" 
+                        placeholder="Cédula">
+                    <span 
+                        *ngIf="form.controls.cedula.touched && !form.controls.cedula.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Nombre</label>
+                    <input 
+                        [(ngModel)]="person.nombre" 
+                        class="form-control border-input"
+                        formControlName="nombre" 
+                        placeholder="Nombre">
+                    <span 
+                        *ngIf="form.controls.nombre.touched && !form.controls.nombre.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Apellido</label>
+                    <input 
+                        [(ngModel)]="person.apellido" 
+                        class="form-control border-input"
+                        formControlName="apellido" 
+                        placeholder="Apellido">
+                    <span 
+                        *ngIf="form.controls.apellido.touched && !form.controls.apellido.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Edad</label>
+                    <input 
+                        [(ngModel)]="person.edad" 
+                        class="form-control border-input"
+                        formControlName="edad" 
+                        placeholder="Edad"
+                        min="18"
+                        max="120"
+                        type="number"
+                        step="1">
+                    <span 
+                        *ngIf="form.controls.edad.touched && !form.controls.edad.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div> 
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Género</label>
+                    <select 
+                        [(ngModel)]="person.sexo" 
+                        class="form-control border-input"
+                        formControlName="sexo" 
+                        placeholder="Género">
+                        <option *ngFor="let at of ['Masculino', 'Femenino']" 
+                            [value]="at"
+                            >{{at}}</option>
+                    </select>
+                    <span 
+                        *ngIf="form.controls.sexo.touched && !form.controls.sexo.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Beca</label>
+                    <input 
+                        [(ngModel)]="student.beca" 
+                        class="form-control border-input"
+                        formControlName="beca" 
+                        placeholder="Especialidad">
+                    <span 
+                        *ngIf="form.controls.beca.touched && !form.controls.beca.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>   
+        
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="form-group">
+                    <label class="control-label" >Carrera</label>
+                    <select 
+                        [(ngModel)]="student.carrera" 
+                        class="form-control border-input"
+                        formControlName="carrera" 
+                        placeholder="Carrera">
+                        <option *ngFor="let at of (careers|async)?.response" 
+                            [value]="at.idCarrera"
+                            [selected]="at.idCarrera == (item|async)?.response.carrera.idCarrera">{{at.nombre}}</option>
+                    </select>
+                    <span 
+                        *ngIf="form.controls.carrera.touched && !form.controls.carrera.valid" 
+                        class="help-block">
+                        Este campo contiene errores
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-wd btn-success" type="submit">
+                    <span class="btn-label">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Guardar
+                </button>
+                
+                <a [routerLink]="['/students']" class="btn btn-wd btn-default btn-fill btn-move-left">
+                    <span class="btn-label"><i class="ti-angle-left"></i></span> Volver
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

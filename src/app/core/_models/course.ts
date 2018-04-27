@@ -1,7 +1,12 @@
+import { Career } from './career';
+import { Classroom } from './classroom';
+
 export class Course {
-   public codigo: number;
-   public costo: number;
-   public creditos: number;
-   public idMateria: number;
-   public nombre: String;
- }
+    public idMateria: Number;
+    public nombre: String;
+    public costo: Number;
+    public creditos: Number;
+    public codigo: String;
+    public carrera: Career;
+    public aula: Classroom;
+}

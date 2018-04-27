@@ -36,9 +36,9 @@
                     <td>{{row.profesorKey.persona.apellido}}</td>
                     <td>{{row.especialidad}}</td>
                     <td class="td-index-functions">
-                        <a [routerLink]="['edit', row.idAula]" class="btn btn-warning btn-icon"><i class="ti-pencil-alt"></i></a>
-                        <a [routerLink]="['details', row.idAula]" class="btn btn-info btn-icon"><i class="ti-search"></i></a>
-                        <button (click)="delete(row.idAula)" class="btn btn-danger btn-icon"><i class="ti-trash"></i></button>
+                        <a [routerLink]="['edit', row.profesorKey.idProfesor]" class="btn btn-warning btn-icon"><i class="ti-pencil-alt"></i></a>
+                        <a [routerLink]="['details', row.profesorKey.idProfesor]" class="btn btn-info btn-icon"><i class="ti-search"></i></a>
+                        <button (click)="delete(row.profesorKey.idProfesor)" class="btn btn-danger btn-icon"><i class="ti-trash"></i></button>
                     </td>
                 </tr>
             </tbody>

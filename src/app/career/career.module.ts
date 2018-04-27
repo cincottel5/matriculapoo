@@ -11,6 +11,7 @@ import { CareerFormComponent } from './form/career-form.component';
 import { CareerDetailComponent } from './detail/career-detail.component';
 
 import { CareerService } from '@app/core';
+import { AuthGuard } from '@app/core';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { CareerService } from '@app/core';
     CareerDetailComponent
   ],
   providers: [
-    CareerService
+    CareerService, 
+    AuthGuard
   ]
 })
 

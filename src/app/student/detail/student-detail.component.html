@@ -1,0 +1,49 @@
+<div class="header">
+    <h4 class="title">Detalle de aula</h4>
+</div>
+<div class="content detail-content">
+    <div class="row">
+        <div class="col-md-3">Identificador</div>
+        <div class="col-md-6">{{(item|async)?.response.alumnoKey.idProfesor}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Cédula</div>
+        <div class="col-md-6">{{(item|async)?.response.alumnoKey.persona.cedula}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Nombre</div>
+        <div class="col-md-6">{{(item|async)?.response.alumnoKey.persona.nombre}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Apellido</div>
+        <div class="col-md-6">{{(item|async)?.response.alumnoKey.persona.apellido}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Edad</div>
+        <div class="col-md-6">{{(item|async)?.response.alumnoKey.persona.edad}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Género</div>
+        <div class="col-md-6">{{(item|async)?.response.alumnoKey.persona.sexo}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Beca</div>
+        <div class="col-md-6">{{(item|async)?.response.beca}}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Carrera</div>
+        <div class="col-md-6">{{(item|async)?.response.carrera.nombre}}</div>
+    </div>
+
+    <div class="row">
+            <div class="col-md-12">
+                    <a [routerLink]="['/students/edit/', (item|async)?.response.alumnoKey.idAlumno]" class="btn btn-wd btn-warning btn-fill btn-move-left">
+                        <span class="btn-label"><i class="ti-angle-left"></i></span> Editar
+                    </a>
+                
+                <a [routerLink]="['/students']" class="btn btn-wd btn-default btn-fill btn-move-left">
+                    <span class="btn-label"><i class="ti-angle-left"></i></span> Volver
+                </a>
+            </div>
+        </div>
+</div>

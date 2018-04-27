@@ -13,9 +13,12 @@ export const ROUTES: RouteInfo[] = [
     { path: 'dashboard', title: 'Inicio',  icon: 'ti-panel', class: '' },
     { path: 'classrooms', title: 'Aulas',  icon:'ti-blackboard', class: '' },
     { path: 'careers', title: 'Carreras',  icon:'ti-view-list-alt', class: '' },
+    { path: 'students', title: 'Estudiantes',  icon:'ti-id-badge', class: '' },
     { path: 'teachers', title: 'Profesores',  icon:'ti-user', class: '' },
-    { path: 'careers', title: 'Carreras',  icon:'ti-bag', class: '' },
-    { path: 'courses', title: 'Materias',  icon:'ti-book', class: '' }
+    { path: 'users', title: 'Usuarios',  icon:'ti-user', class: '' },
+    { path: 'courses', title: 'Materias',  icon:'ti-book', class: '' },
+    { path: 'contacts', title: 'Contactos',  icon:'ti-email', class: '' },
+    { path: 'enrollments', title: 'Matriculas',  icon:'ti-calendar', class: '' }
 ];
 
 @Component({

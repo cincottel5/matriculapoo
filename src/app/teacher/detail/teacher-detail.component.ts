@@ -9,6 +9,7 @@ import { TeacherService, Teacher, Notification } from '@app/core';
 export class TeacherDetailComponent implements OnInit {
     id;
     teacher: Teacher;
+    item
 
     constructor( 
         private _router: Router, 
@@ -21,17 +22,7 @@ export class TeacherDetailComponent implements OnInit {
             this.id = params['id'];
 
             if (this.id) {
-                this._teacherService.find(this.id).subscribe(
-                    data => {
-                        if (data.response != null) {
-                            this.teacher = data.response;
-                        } else {
-                            this._router.navigate(['teachers']);    
-                            Notification.notify('No se encontró el profesor especificado.', 'warning');       
-                        }
-                    },
-                    error => Notification.notify('Ha ocurrido un error.', 'error')
-                );
+                this.item = this._teacherService.find(this.id);
             } 
         });
     }

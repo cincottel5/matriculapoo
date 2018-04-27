@@ -8,6 +8,7 @@ export class CourseService extends RestService{
 
     constructor( protected _http: HttpClient ) {
         super(_http);
+        this.relativeUrl = '/materia';
     }
 
     /**
@@ -15,39 +16,34 @@ export class CourseService extends RestService{
      */
     list(page, sort, search) {
         let params = this.stringParams(page, sort, search);
-        console.log(this.get(`/materia${params}`));
-        return this.get(`/materia${params}`);
+        return this.get(`${this.relativeUrl}${params}`);
     }
 
     /**
-     * Find materia by id
+     * Find course by id
      * @param id
      */
-    find(id: number) {
-        return this.get(`/materia/${id}`);
+    find(id: number){
+        return this.get(`${this.relativeUrl}/${id}`);
     }
 
     /**
-     * Create Course to api with post method
+     * Create course to api with post method
      * @param course
      */
     create(course: Course) {
-        return this.post('/materia', course);
+        return this.post(this.relativeUrl, course);
     }
 
     /**
-     * Update Course to api with put method
+     * Update course to api with put method
      * @param course
      */
     edit(course: Course) {
-        return this.put(`/materia/${course.idMateria}`, course);
+        return this.put(`${this.relativeUrl}/${course.idMateria}`, course);
     }
 
-    /**
-     * Remove career to api with delete method
-     * @param id
-     */
     remove(id: number) {
-        return this.delete('/materia', id);
+        return this.delete(this.relativeUrl, id);
     }
 }
