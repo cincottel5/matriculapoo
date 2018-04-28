@@ -31,7 +31,8 @@
             class="form-control border-input"
             formControlName="clave"
             placeholder="clave"
-            value="{{user.clave}}">
+            value="{{user.clave}}"
+            type="password">
           <span
             *ngIf="form.controls.clave.touched && !form.controls.clave.valid"
             class="help-block">
