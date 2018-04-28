@@ -35,6 +35,8 @@ import {CourseRouting} from '@app/course/course.routing';
 import { AppRoutes } from './app.routing';
 
 import { AuthGuard } from '@app/core';
+import {ContactModule} from '@app/contact/contact.module';
+import {ContactRouting} from '@app/contact/contact.routing';
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import { AuthGuard } from '@app/core';
     TeacherRouting,
     CareerModule,
     CareerRouting,
+    ContactModule,
+    ContactRouting,
     StudentModule,
     StudentRouting,
     CourseModule,
