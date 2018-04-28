@@ -16,6 +16,9 @@ export class StudentDetailComponent implements OnInit {
         private _route: ActivatedRoute, 
         private _studentService: StudentService,
         private _personFactory: PersonFactory ) {
+            /**
+             * Patron factory
+             */
             this.student = this._personFactory.getPerson('student');
     }
     

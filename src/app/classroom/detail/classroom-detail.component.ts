@@ -10,6 +10,12 @@ export class ClassroomDetailComponent implements OnInit {
     id;
     classroom: Classroom;
 
+    /**
+     * Patron dependency injection
+     * @param _router 
+     * @param _route 
+     * @param _classroomService 
+     */
     constructor( 
         private _router: Router, 
         private _route: ActivatedRoute, 

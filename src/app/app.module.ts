@@ -69,6 +69,9 @@ import {ContactRouting} from '@app/contact/contact.routing';
     EnrollmentRouting,
     AppRoutes
   ],
+  /**
+   * Patron singleton sobre AuthGuard
+   */
   providers: [AuthGuard],
   bootstrap: [AppComponent]
 })

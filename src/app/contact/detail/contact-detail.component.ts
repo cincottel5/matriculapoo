@@ -10,6 +10,12 @@ export class ContactDetailComponent implements OnInit {
   id;
   contact: Contact;
 
+  /**
+   * Patron dependency injection
+   * @param _router 
+   * @param _route 
+   * @param _contactService 
+   */
   constructor(
     private _router: Router,
     private _route: ActivatedRoute,

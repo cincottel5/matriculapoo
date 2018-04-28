@@ -12,6 +12,9 @@ export class Teacher implements PersonaKey {
         this.profesorKey = new ProfesorKey();
     }
 
+    /**
+     * Patron facade
+     */
     getFullName(){
         return `${this.profesorKey.persona.nombre} ${this.profesorKey.persona.apellido}`;
     }

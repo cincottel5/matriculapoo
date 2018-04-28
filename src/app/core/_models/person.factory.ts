@@ -4,6 +4,7 @@ import { Teacher } from './teacher';
 import { PersonaKey } from '../_interfaces/persona-key.interface';
 
 /**
+ * Patron factory
  * Person factory
  */
 @Injectable()

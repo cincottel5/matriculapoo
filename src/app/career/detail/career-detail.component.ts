@@ -10,6 +10,13 @@ export class CareerDetailComponent implements OnInit {
     id;
     career: Career;
 
+
+    /**
+     * Patron dependency Injection
+     * @param _router 
+     * @param _route 
+     * @param _careerService 
+     */
     constructor( 
         private _router: Router, 
         private _route: ActivatedRoute, 

@@ -15,6 +15,9 @@ export class TeacherDetailComponent implements OnInit {
         private _route: ActivatedRoute, 
         private _teacherService: TeacherService,
         private _personFactory: PersonFactory ) {
+            /**
+             * Patron factory
+             */
             this.item = this._personFactory.getPerson('teacher');
     }
     

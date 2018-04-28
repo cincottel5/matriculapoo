@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ContactService, Contact, Notification } from '@app/core';
+import { ContactService, PersonService, Person,Contact, Notification } from '@app/core';
 
 @Component({
   templateUrl: './contact-form.component.html'
@@ -13,11 +13,16 @@ export class ContactFormComponent implements OnInit{
   form: FormGroup;
   title: string;
   contact = new Contact();
+  person = new Person();
+  persons;
+
+  contactTypes = ["Correo", "Teléfono"]
 
   constructor(
     fb: FormBuilder,
     private _router: Router,
     private _contactService: ContactService,
+    private _personaService: PersonService,
     private _route: ActivatedRoute) {
 
     this.form = fb.group({
@@ -31,12 +36,17 @@ export class ContactFormComponent implements OnInit{
   ngOnInit() {
     this._route.params.subscribe( (params) => {
       this.id = params['id'];
+      
+      this._personaService.list(1,'','').subscribe( (data)=> {
+        this.persons = data.response;
+      });
 
       if (this.id) {
         this.title = 'Editar contacto';
 
         this._contactService.find(this.id).subscribe( (c) => {
           this.contact = c.response;
+          this.person = this.contact.persona;
         });
       } else {
         this.title = 'Crear contacto';
@@ -48,6 +58,13 @@ export class ContactFormComponent implements OnInit{
     if (null == this.form.errors) {
       if (this.id) { // Edit
         this.contact.idContacto = this.id;
+
+        if (typeof this.form.controls.aula.value == 'string'){
+            this.contact.persona = this.persons
+            .find(x => x.idPersona == this.form.controls.persona.value);
+        } else {
+            this.contact.persona = this.person;
+        }
 
         this._contactService.edit(this.contact).subscribe(
           data => {
@@ -61,6 +78,9 @@ export class ContactFormComponent implements OnInit{
           error => Notification.notify('Ha ocurrido un eror.', 'error')
         );
       } else { // Create
+        this.contact.persona = this.persons
+            .find(x => x.idPersona == this.form.controls.persona.value);
+
         this._contactService.create(this.contact).subscribe(
           data => {
             if (data.httpStatus == 200) {

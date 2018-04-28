@@ -14,6 +14,9 @@ export class Student implements PersonaKey{
         this.alumnoKey = new AlumnoKey();
     }
 
+    /**
+     * Patron facade
+     */
     getFullName(){
         return `${this.alumnoKey.persona.nombre} ${this.alumnoKey.persona.apellido}`;
     }

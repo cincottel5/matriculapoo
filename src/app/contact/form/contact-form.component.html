@@ -4,36 +4,36 @@
 <div class="content">
   <form [formGroup]="form" (ngSubmit)="submit()" class="">
     <div class="row">
-      <div class="col-md-6 col-sm-12">
+      <div class="col-md-6">
         <div class="form-group">
-          <label class="control-label" >Número de contacto</label>
+          <label class="control-label" >Nombre</label>
           <input
-            [(ngModel)]="contact.idContact"
+            [(ngModel)]="contact.nombre"
             class="form-control border-input"
-            formControlName="numeroContact"
-            placeholder="Número de contact"
-            value="{{contact.numeroContact}}">
+            formControlName="nombre"
+            placeholder="Nombre"
+            value="{{contact.nombre}}">
           <span
-            *ngIf="form.controls.numeroContact.touched && !form.controls.numeroContact.valid"
+            *ngIf="form.controls.nombre.touched && !form.controls.nombre.valid"
             class="help-block">
                         Este campo contiene errores
                     </span>
         </div>
       </div>
     </div>
-
+    
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 col-sm-12">
         <div class="form-group">
-          <label class="control-label" >Nombre</label>
+          <label class="control-label" >Descripción</label>
           <input
-            [(ngModel)]="contact.area"
+            [(ngModel)]="contact.descripcion"
             class="form-control border-input"
-            formControlName="area"
-            placeholder="Nombre del área"
-            value="{{contact.area}}">
+            formControlName="descripcion"
+            placeholder="Descripción"
+            value="{{contact.descripcion}}">
           <span
-            *ngIf="form.controls.area.touched && !form.controls.area.valid"
+            *ngIf="form.controls.descripcion.touched && !form.controls.descripcion.valid"
             class="help-block">
                         Este campo contiene errores
                     </span>
@@ -49,11 +49,30 @@
             [(ngModel)]="contact.tipo"
             class="form-control border-input"
             formControlName="tipo"
-            placeholder="Tipo de contact"
-            value="{{contact.tipo}}">
+            placeholder="Tipo de contact">
             <option *ngFor="let at of contactTypes"
-                    [value]="at"
-                    [selected]="at === contact.tipo">{{at}}</option>
+                    [value]="at">{{at}}</option>
+          </select>
+          <span
+            *ngIf="form.controls.tipo.touched && !form.controls.tipo.valid"
+            class="help-block">
+                        Este campo contiene errores
+                    </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="control-label" >Persona</label>
+          <select
+            [(ngModel)]="person.idPersona"
+            class="form-control border-input"
+            formControlName="persona"
+            placeholder="Persona">
+            <option *ngFor="let at of persons"
+                    [value]="at.idPersona">{{at.nombre}} {{at.apellido}}</option>
           </select>
           <span
             *ngIf="form.controls.tipo.touched && !form.controls.tipo.valid"
