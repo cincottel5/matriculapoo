@@ -26,11 +26,16 @@ import { EnrollmentRouting } from './enrollment/enrollment.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
+import {UserModule} from '@app/user/user.module';
+import {UserRouting} from '@app/user/user.routing';
+
+import {CourseModule} from '@app/course/course.module';
+import {CourseRouting} from '@app/course/course.routing';
+
 import { AppRoutes } from './app.routing';
 
 import { AuthGuard } from '@app/core';
-import {UserModule} from '@app/user/user.module';
-import {UserRouting} from '@app/user/user.routing';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +59,8 @@ import {UserRouting} from '@app/user/user.routing';
     CareerRouting,
     StudentModule,
     StudentRouting,
+    CourseModule,
+    CourseRouting,
     EnrollmentModule,
     EnrollmentRouting,
     AppRoutes
