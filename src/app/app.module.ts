@@ -29,6 +29,8 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutes } from './app.routing';
 
 import { AuthGuard } from '@app/core';
+import {ContactModule} from '@app/contact/contact.module';
+import {ContactRouting} from '@app/contact/contact.routing';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import { AuthGuard } from '@app/core';
     TeacherRouting,
     CareerModule,
     CareerRouting,
+    ContactModule,
+    ContactRouting,
     StudentModule,
     StudentRouting,
     EnrollmentModule,
